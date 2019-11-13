@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODO List (Chistyakov Dmitriy)</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container flex-header">
+            <div class="logo">
+                <span>TODO...</span>
+                <svg class="logo-icon" aria-hidden="true" focusable="false" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path class="fa-w-16" fill="currentColor"
+                        d="M256 256c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zM448 0H64C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v84c0 7.1 5.8 12 12 12 2.4 0 4.9-.7 7.1-2.4L304 416h144c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64zm16 352c0 8.8-7.2 16-16 16H288l-12.8 9.6L208 428v-60H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h384c8.8 0 16 7.2 16 16v288zM284.7 96h-57.4c-10 0-17.6 9.1-15.7 18.9l18 96c1.4 7.6 8 13.1 15.7 13.1h21.4c7.7 0 14.3-5.5 15.7-13.1l18-96c1.9-9.8-5.7-18.9-15.7-18.9z">
+                    </path>
+                </svg>
+            </div>
+            <div class="block-share">
+                <div class="share-btn" id="share" title="share data"></div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="list-doings">
+                <div class="block-wellcome-text">
+                    <p class="wellcome">ToDo list</p>
+                </div>
+            </div>
+            <div id="add" class="add-doings"></div>
+            <div class="modal-area hide">
+                <div class="modal-window">
+                    <form id="add-doings" name="addDoings" class="flex_formBlock">
+                        <div class="input form_modal">
+                            <input id="nameThings" class="input_add_text" type="text" name="todoText"
+                                placeholder="Enter text">
+                            <span class="wrong"></span>
+                        </div>
+                        <div class="status_title">Priority</div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="status" id="stat-1" value="low" checked><label
+                                for="stat-1">Low</label>
+                        </div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="status" id="stat-2" value="minor"><label
+                                for="stat-2">Minor</label>
+                        </div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="status" id="stat-3" value="major"><label
+                                for="stat-3">Major</label>
+                        </div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="status" id="stat-4" value="high"><label for="stat-4">High</label>
+                        </div>
+                        <div class="input_btn form_modal">
+                            <input type="button" value="Save" class="btn-add" id="btn-save-things">
+                        </div>
+                    </form>
+                    <div id="close-modal-addForm" class="close-btn_form">close</div>
+                </div>
+            </div>
+            <div class="modal-area-progress hide">
+                <div class="modal-window">
+                    <form name="editProgress" class="flex_formBlock">
+
+                        <div class="status_title">Progress</div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="progress" id="progress-1" value="open"><label
+                                for="progress-1">Open</label>
+                        </div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="progress" id="progress-2" value="prog"><label for="progress-2">In
+                                progress</label>
+                        </div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="progress" id="progress-3" value="done"><label
+                                for="progress-3">Done</label>
+                        </div>
+                        <div class="input_btn form_modal">
+                            <input type="button" value="Save" class="btn-save" id="btn-save-progress">
+                        </div>
+                    </form>
+                    <div id="close-modal-progress" class="close-btn_form">close</div>
+                </div>
+            </div>
+            <div class="modal-area-edit hide">
+                <div class="modal-window">
+                    <form id="edit-doings" name="editDoings" class="flex_formBlock">
+                        <div class="input form_modal">
+                            <input id="nameThingsEdit" class="input_add_text" type="text" name="todoTextEdit"
+                                placeholder="Enter text">
+                            <span class="wrongEdit"></span>
+                        </div>
+                        <div class="status_title">Priority</div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="statusEdit" id="statEdit-1" value="low" checked><label
+                                for="statEdit-1">Low</label>
+                        </div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="statusEdit" id="statEdit-2" value="minor"><label
+                                for="statEdit-2">Minor</label>
+                        </div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="statusEdit" id="statEdit-3" value="major"><label
+                                for="statEdit-3">Major</label>
+                        </div>
+                        <div class="input_radio form_modal">
+                            <input type="radio" name="statusEdit" id="statEdit-4" value="high"><label
+                                for="statEdit-4">High</label>
+                        </div>
+                        <div class="input_btn form_modal">
+                            <input type="button" value="Delete" class="btn-del" id="btn-del-edit">
+                            <input type="button" value="Save" class="btn-save" id="btn-save-edit">
+                        </div>
+                    </form>
+                    <div id="close-modal-editForm" class="close-btn_form">close</div>
+                </div>
+            </div>
+            <div class="modal-yn hide">
+                <div class="modal-window center-paragraf">
+                    <p>Are you shure?</p>
+                    <div class="input_btn form_modal">
+                        <input type="button" value="Yes" class="btn-del" id="btn-del-yes">
+                        <input type="button" value="No" class="btn-save" id="btn-del-no">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container-2">
+            <span class="copyright">Chistyakov D. 2019</span>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/helpFileData.js"></script>
+    <script src="js/Doings.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
